@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SupportDeveloperTableViewCell" rowHeight="70" id="aAm-az-Uls" customClass="SupportDeveloperTableViewCell" customModule="Lottie_Player" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="412" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aAm-az-Uls" id="fnu-HH-22F">
+                <rect key="frame" x="0.0" y="0.0" width="412" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTQ-fm-hBZ">
+                        <rect key="frame" x="0.0" y="0.0" width="412" height="60"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ha1-w2-kBy">
+                        <rect key="frame" x="10" y="10" width="392" height="17"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2H-he-sp2">
+                        <rect key="frame" x="10" y="32" width="392" height="15"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="y2H-he-sp2" firstAttribute="leading" secondItem="fnu-HH-22F" secondAttribute="leading" constant="10" id="CpR-mK-vjl"/>
+                    <constraint firstItem="ha1-w2-kBy" firstAttribute="top" secondItem="fnu-HH-22F" secondAttribute="top" constant="10" id="Knu-9u-UXb"/>
+                    <constraint firstItem="y2H-he-sp2" firstAttribute="top" secondItem="ha1-w2-kBy" secondAttribute="bottom" constant="5" id="Nec-u8-02a"/>
+                    <constraint firstItem="iTQ-fm-hBZ" firstAttribute="top" secondItem="fnu-HH-22F" secondAttribute="top" id="XnI-3e-FiZ"/>
+                    <constraint firstAttribute="trailing" secondItem="iTQ-fm-hBZ" secondAttribute="trailing" id="afl-8o-Whq"/>
+                    <constraint firstItem="iTQ-fm-hBZ" firstAttribute="leading" secondItem="fnu-HH-22F" secondAttribute="leading" id="dYa-Xd-MOb"/>
+                    <constraint firstAttribute="bottom" secondItem="iTQ-fm-hBZ" secondAttribute="bottom" constant="10" id="gL2-eC-1Rw"/>
+                    <constraint firstAttribute="trailing" secondItem="y2H-he-sp2" secondAttribute="trailing" constant="10" id="ikw-fP-LFV"/>
+                    <constraint firstItem="ha1-w2-kBy" firstAttribute="leading" secondItem="fnu-HH-22F" secondAttribute="leading" constant="10" id="nhf-qX-k82"/>
+                    <constraint firstAttribute="trailing" secondItem="ha1-w2-kBy" secondAttribute="trailing" constant="10" id="p41-az-2wm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="priceLabel" destination="y2H-he-sp2" id="8gO-0L-1Wy"/>
+                <outlet property="roundedBackgroundView" destination="iTQ-fm-hBZ" id="Kfh-GL-3RS"/>
+                <outlet property="titleLabel" destination="ha1-w2-kBy" id="98T-kF-dzX"/>
+            </connections>
+            <point key="canvasLocation" x="201.44927536231884" y="152.00892857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
