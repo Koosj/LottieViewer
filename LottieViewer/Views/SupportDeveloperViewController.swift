@@ -75,7 +75,7 @@ final class SupportDeveloperViewController: BaseViewController, SKPaymentTransac
                 } else {
                     
                     switch ATTrackingManager.trackingAuthorizationStatus {
-                    
+
                     case .notDetermined:
                         ATTrackingManager.requestTrackingAuthorization { status in
                             if status == .authorized {
@@ -85,18 +85,27 @@ final class SupportDeveloperViewController: BaseViewController, SKPaymentTransac
                                 }
                             }
                         }
-                        
                     case .denied:
-                        if let settingURL = URL(string: UIApplication.openSettingsURLString) {
-                            UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
+                        
+                        let alertController = UIAlertController(title: "Your privacy is precious💎", message: "BUT\nIf you want some help developer\nFollow this instruction.\nSettings⚙️ -> Privacy✋ -> Track👀\nCheck 'Allow Apps to Request to Track' option is On.\nIf it is tap Go to Setting.\nIf not? Tap to Close\nAnd turn on that option🙏\n And then back to here.", preferredStyle: .alert)
+                        
+                        let gotoSettingAction = UIAlertAction(title: "Go to Setting", style: .default) { _ in
+                            if let settingURL = URL(string: UIApplication.openSettingsURLString) {
+                                UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
+                            }
                         }
+                        
+                        let closeAction = UIAlertAction(title: "Close", style: .cancel, handler: nil)
+                        
+                        alertController.addAction(closeAction)
+                        alertController.addAction(gotoSettingAction)
+                        
+                        self?.present(alertController, animated: true, completion: nil)
                         
                     case .authorized:
                         break
-                        
                     case .restricted:
                         break
-                        
                     @unknown default:
                         break
                     }
