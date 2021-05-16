@@ -66,48 +66,17 @@ final class SupportDeveloperViewController: BaseViewController, SKPaymentTransac
             .disposed(by: _disposeBag)
         
         supportDeveloperTableView.rx.modelSelected(SupportDeveloperModel.self)
-            .subscribe { [weak self] supportDeveloperModel in
+            .subscribe { supportDeveloperModel in
                 
                 if let product = supportDeveloperModel.element?.product {
                     let payment = SKPayment(product: product)
                     SKPaymentQueue.default().add(payment)
                     
                 } else {
-                    
-                    switch ATTrackingManager.trackingAuthorizationStatus {
-
-                    case .notDetermined:
-                        ATTrackingManager.requestTrackingAuthorization { status in
-                            if status == .authorized {
-                                GADMobileAds.sharedInstance().start { adSatus in
-                                    App.canAdsShowing.accept(true)
-                                    self?.supportDeveloperTableView.reloadData()
-                                }
-                            }
+                    if ATTrackingManager.trackingAuthorizationStatus != .authorized {
+                        if let settingURL = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
                         }
-                    case .denied:
-                        
-                        let alertController = UIAlertController(title: "Your privacy is precious💎", message: "BUT\nIf you want some help developer\nFollow this instruction.\nSettings⚙️ -> Privacy✋ -> Track👀\nCheck 'Allow Apps to Request to Track' option is On.\nIf it is tap Go to Setting.\nIf not? Tap to Close\nAnd turn on that option🙏\n And then back to here.", preferredStyle: .alert)
-                        
-                        let gotoSettingAction = UIAlertAction(title: "Go to Setting", style: .default) { _ in
-                            if let settingURL = URL(string: UIApplication.openSettingsURLString) {
-                                UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
-                            }
-                        }
-                        
-                        let closeAction = UIAlertAction(title: "Close", style: .cancel, handler: nil)
-                        
-                        alertController.addAction(closeAction)
-                        alertController.addAction(gotoSettingAction)
-                        
-                        self?.present(alertController, animated: true, completion: nil)
-                        
-                    case .authorized:
-                        break
-                    case .restricted:
-                        break
-                    @unknown default:
-                        break
                     }
                 }
             }

@@ -65,23 +65,9 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syu-Ak-8qB">
                                 <rect key="frame" x="47" y="812" width="320" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYf-2X-dds">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                                        <string key="text">Do you want support developer?
-HIT ME!👊</string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="eYf-2X-dds" firstAttribute="leading" secondItem="syu-Ak-8qB" secondAttribute="leading" id="ALA-JD-QvV"/>
-                                    <constraint firstAttribute="trailing" secondItem="eYf-2X-dds" secondAttribute="trailing" id="B6X-lb-lcz"/>
                                     <constraint firstAttribute="height" constant="50" id="Pt1-EJ-7w3"/>
-                                    <constraint firstAttribute="bottom" secondItem="eYf-2X-dds" secondAttribute="bottom" id="VKt-az-Nif"/>
-                                    <constraint firstItem="eYf-2X-dds" firstAttribute="top" secondItem="syu-Ak-8qB" secondAttribute="top" id="xwa-dc-9PD"/>
                                     <constraint firstAttribute="width" constant="320" id="yrY-u1-HUQ"/>
                                 </constraints>
                             </view>
@@ -146,7 +132,6 @@ HIT ME!👊</string>
                         <outlet property="playButton" destination="PpM-Ot-YCa" id="t5k-qz-qEd"/>
                         <outlet property="progressSlider" destination="C3P-5Y-h21" id="3aL-9v-E1H"/>
                         <outlet property="repeatSwitch" destination="lru-nq-CrU" id="rjd-Ri-OX1"/>
-                        <outlet property="supportDeveloperLabel" destination="eYf-2X-dds" id="9uK-cP-zMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iUO-56-uRZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
