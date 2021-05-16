@@ -32,6 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GADMobileAds.sharedInstance().start { adSatus in
                 App.canAdsShowing.accept(true)
             }
+        } else {
+            ATTrackingManager.requestTrackingAuthorization { _ in
+                GADMobileAds.sharedInstance().start { adSatus in
+                    App.canAdsShowing.accept(true)
+                }
+            }
         }
         
         return true

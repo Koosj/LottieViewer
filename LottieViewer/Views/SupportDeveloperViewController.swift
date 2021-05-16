@@ -66,39 +66,17 @@ final class SupportDeveloperViewController: BaseViewController, SKPaymentTransac
             .disposed(by: _disposeBag)
         
         supportDeveloperTableView.rx.modelSelected(SupportDeveloperModel.self)
-            .subscribe { [weak self] supportDeveloperModel in
+            .subscribe { supportDeveloperModel in
                 
                 if let product = supportDeveloperModel.element?.product {
                     let payment = SKPayment(product: product)
                     SKPaymentQueue.default().add(payment)
                     
                 } else {
-                    
-                    switch ATTrackingManager.trackingAuthorizationStatus {
-                    
-                    case .notDetermined:
-                        ATTrackingManager.requestTrackingAuthorization { status in
-                            if status == .authorized {
-                                GADMobileAds.sharedInstance().start { adSatus in
-                                    App.canAdsShowing.accept(true)
-                                    self?.supportDeveloperTableView.reloadData()
-                                }
-                            }
-                        }
-                        
-                    case .denied:
+                    if ATTrackingManager.trackingAuthorizationStatus != .authorized {
                         if let settingURL = URL(string: UIApplication.openSettingsURLString) {
                             UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
                         }
-                        
-                    case .authorized:
-                        break
-                        
-                    case .restricted:
-                        break
-                        
-                    @unknown default:
-                        break
                     }
                 }
             }

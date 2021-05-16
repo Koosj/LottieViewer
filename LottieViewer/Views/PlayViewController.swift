@@ -17,7 +17,6 @@ final class PlayViewController: BaseViewController {
     @IBOutlet weak var repeatSwitch: UISwitch!
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var adView: UIView!
-    @IBOutlet weak var supportDeveloperLabel: UILabel!
     
     private let _disposeBag: DisposeBag = DisposeBag()
     var selectedAnimationViewModel: SelectedAnimationViewModel!
@@ -88,20 +87,6 @@ final class PlayViewController: BaseViewController {
             .asDriver()
             .drive(onNext: { [weak self] progressValue in
                 self?.animationView.currentProgress = CGFloat(progressValue)
-            }, onCompleted: nil, onDisposed: nil)
-            .disposed(by: _disposeBag)
-        
-        let tapGesture = UITapGestureRecognizer()
-        supportDeveloperLabel.addGestureRecognizer(tapGesture)
-        
-        tapGesture.rx.event
-            .asDriver()
-            .drive(onNext: { [weak self] _ in
-                
-                guard let supportDeveloperViewController = SupportDeveloperViewController.instantiate(viewModel: SupportDeveloperViewModel()) else { return }
-                
-                self?.present(supportDeveloperViewController, animated: true, completion: nil)
-                
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: _disposeBag)
     }
